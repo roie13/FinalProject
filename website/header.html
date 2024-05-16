@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="header.css">
+</head>
+
+<body>
+  <div class="header">
+    <a href="index.html" target="_top">
+      <h1>My Favorite Dish</h1>
+    </a>
+
+    <div id="loggedOutDiv">
+      <button id="logInButton">Log In</button>
+      <button id="signUpButton">Sign Up</Bbtton>
+    </div>
+
+    <div id="loggedInDiv">
+      <div id="greetingDiv"></div>
+      <button id="logOutButton">Log Out</button>
+    </div>
+  </div>
+
+  <script type="module">
+import Cookies from "./_cookies.js";
+import { send } from "./_utils.js";
+
+/**@type {HTMLDivElement} */
+let loggedOutDiv = document.getElementById("loggedOutDiv");
+
+/**@type {HTMLButtonElement} */
+let logInButton = document.getElementById("logInButton");
+
+/**@type {HTMLButtonElement} */
+let signUpButton = document.getElementById("signUpButton");
+
+/**@type {HTMLDivElement} */
+let loggedInDiv = document.getElementById("loggedInDiv");
+
+/**@type {HTMLDivElement} */
+let greetingDiv = document.getElementById("greetingDiv");
+
+/**@type {HTMLButtonElement} */
+let logOutButton = document.getElementById("logOutButton");
+
+/**@type {string | undefined} */
+let id = Cookies.get("id");
+
+logInButton.onclick = function () {
+  top.location.href = "logIn.html";
+}
+
+signUpButton.onclick = function () {
+  top.location.href = "signUp.html";
+}
+
+logOutButton.onclick = function () {
+  Cookies.remove("id");
+  top.location.href = "index.html";
+}
+
+async function getUsername() {
+  if (id == undefined) {
+    loggedInDiv.classList.add("hidden");
+    Cookies.remove("id");
+    return;
+  }
+
+  /**@type {username | null} */
+  let username = await send("/getUsername", id);
+
+  if (username == null) {
+    loggedInDiv.classList.add("hidden");
+    Cookies.remove("id");
+    return;
+  }
+
+  loggedOutDiv.classList.add("hidden");
+  greetingDiv.innerText = "Welcome, " + username + "!";
+}
+
+getUsername();
+
+  </script>
+</body>
+
+</html>
