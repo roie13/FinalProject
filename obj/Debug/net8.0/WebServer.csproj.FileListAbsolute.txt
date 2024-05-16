@@ -68,3 +68,4 @@ C:\Users\roeim\OneDrive\שולחן העבודה\הנדסת תוכנה\WebServer\
 C:\Users\roeim\OneDrive\שולחן העבודה\הנדסת תוכנה\WebServer\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\roeim\OneDrive\שולחן העבודה\הנדסת תוכנה\WebServer\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\roeim\OneDrive\שולחן העבודה\הנדסת תוכנה\WebServer\obj\Debug\net8.0\WebServer.csproj.CopyComplete
+C:\Users\roeim\OneDrive\שולחן העבודה\הנדסת תוכנה\WebServer\obj\Debug\net8.0\WebServer.sourcelink.json

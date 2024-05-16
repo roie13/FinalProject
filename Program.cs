@@ -101,24 +101,16 @@ class Program
 
     string absPath = request.Url!.AbsolutePath;
 
-    if (absPath == "/signUp")
+   if (absPath == "/signUp")
     {
       (string username, string password) = request.GetBody<(string, string)>();
 
-      var userId = Uuid.NewDatabaseFriendly(Database.SQLite).ToString();
+      var userId = Uuid.NewDatabaseFriendly(UUIDNext.Database.SQLite).ToString();
 
       var user = new User(userId, username, password);
       databaseContext.Users.Add(user);
 
       response.Write(userId);
-    }
-    else if (absPath == "/autoLogIn")
-    {
-      string userId = request.GetBody<string>();
-
-      User user = databaseContext.Users.Find(userId)!;
-
-      response.Write(new { username = user.Username });
     }
 
     else if (absPath == "/logIn")
@@ -130,6 +122,15 @@ class Program
       )!;
 
       response.Write(user.Id);
+    }
+
+    else if (absPath == "/getUsername")
+    {
+      string userId = request.GetBody<string>();
+
+      User user = databaseContext.Users.Find(userId)!;
+
+      response.Write(user.Username);
     }
 
     if (absPath == "/addDish")
