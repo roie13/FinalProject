@@ -101,7 +101,7 @@ class Program
 
     string absPath = request.Url!.AbsolutePath;
 
-   if (absPath == "/signUp")
+    if (absPath == "/signUp")
     {
       (string username, string password) = request.GetBody<(string, string)>();
 
@@ -154,12 +154,36 @@ class Program
 
       response.Write(dish);
     }
+    if (absPath == "/check")
+    {
+      (string UserId, int DishId, bool isChecked) = request.GetBody<(string, int, bool)>();
+      if (isChecked)
+      {
+        databaseContext.Favorites.Add(new Favorite(UserId, DishId));
+      }
+      else
+      {
+        databaseContext.Favorites.Remove(new Favorite(UserId, DishId));
+      }
+    }
+
+    else if (absPath == "/isChecked")
+    {
+      (string userId, int dishId) = request.GetBody<(string, int)>();
+      Favorite? favorite = databaseContext.Favorites.FirstOrDefault(f => f.UserId == userId && f.DishId == dishId);
+      bool isChecked = favorite != null;
+      Console.WriteLine("is Checked is " + isChecked);
+      response.Write(isChecked);
+    }
+
+
   }
 }
 class DatabaseContext : DbContextWrapper
 {
   public DbSet<Dish> Dishes { get; set; }
   public DbSet<User> Users { get; set; }
+  public DbSet<Favorite> Favorites { get; set; }
 
   public DatabaseContext() : base("Database") { }
 }
@@ -178,4 +202,19 @@ class User(string id, string username, string password)
   public string Id { get; set; } = id;
   public string Username { get; set; } = username;
   public string Password { get; set; } = password;
+}
+
+class Favorite(string userId, int dishId)
+{
+  [Key]
+  public int Id { get; set; }
+
+  public string UserId { get; set; } = userId;
+  public int DishId { get; set; } = dishId;
+
+  [ForeignKey("UserId")]
+  public User? User { get; set; }
+
+  [ForeignKey("DishId")]
+  public Dish? Dish { get; set; }
 }

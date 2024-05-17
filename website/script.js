@@ -1,5 +1,6 @@
 
 
+import Cookies from "./_cookies";
 import { send } from "./_utils";
 
 let container = document.getElementsByClassName("container")[0];
@@ -36,12 +37,12 @@ async function getAll() {
 
     container.innerHTML = null;
     for (let i = 0; i < dishes.length; i++) {
-        createDish(dishes[i].Name, dishes[i].Image, dishes[i].Description);
+        createDish(dishes[i].Name, dishes[i].Image, dishes[i].Id);
     }
 }
 
 
-function createDish(name, src, description) {
+async function createDish(name, src, dishId) {
     let firstName = name.split(" ")[0];
 
     // תבנית
@@ -67,6 +68,20 @@ function createDish(name, src, description) {
     const Checkbox = document.createElement("input");
     Checkbox.type = "checkbox";
     nameAndCheckboxDiv.appendChild(Checkbox);
+    var isChecked = await send("/isChecked", {
+        userId: Cookies.get("id"),
+        dishId: dishId,
+    });
+    console.log(isChecked);
+    Checkbox.checked = isChecked;
+
+    Checkbox.onclick = function() {
+        send("/check", {
+            userId: Cookies.get("id"),
+            dishId: dishId,
+            isChecked: Checkbox.checked,
+        });
+    };
 
     // שם
     let nameDiv = document.createElement("div");
