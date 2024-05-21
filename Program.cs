@@ -163,7 +163,8 @@ class Program
       }
       else
       {
-        databaseContext.Favorites.Remove(new Favorite(UserId, DishId));
+        Favorite favorite = databaseContext.Favorites.First(favorite => favorite.UserId == UserId && favorite.DishId == DishId);
+        databaseContext.Favorites.Remove(favorite);
       }
     }
 
