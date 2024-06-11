@@ -43,7 +43,7 @@ async function getAll() {
 
 
 async function createDish(name, src, dishId) {
-    let firstName = name.split(" ")[0];
+    let firstName = name;
 
     // תבנית
     let dishDiv = document.createElement("div");
