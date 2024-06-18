@@ -1258,11 +1258,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\roeim\\OneDrive\\שולחן העבודה\\הנדסת תוכנה\\WebServer\\WebServer.csproj",
+      "projectUniqueName": "C:\\Users\\roeim\\OneDrive\\שולחן העבודה\\הנדסת תוכנה\\FinalProject10\\WebServer.csproj",
       "projectName": "WebServer",
-      "projectPath": "C:\\Users\\roeim\\OneDrive\\שולחן העבודה\\הנדסת תוכנה\\WebServer\\WebServer.csproj",
+      "projectPath": "C:\\Users\\roeim\\OneDrive\\שולחן העבודה\\הנדסת תוכנה\\FinalProject10\\WebServer.csproj",
       "packagesPath": "C:\\Users\\roeim\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\roeim\\OneDrive\\שולחן העבודה\\הנדסת תוכנה\\WebServer\\obj\\",
+      "outputPath": "C:\\Users\\roeim\\OneDrive\\שולחן העבודה\\הנדסת תוכנה\\FinalProject10\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\roeim\\AppData\\Roaming\\NuGet\\NuGet.Config"

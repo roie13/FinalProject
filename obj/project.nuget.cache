@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "36yGeuYnBRvosUlSrHv8Ce8pqa48x21IU4nOLtHqmxd0w6hm0ECacqfjoG9m9nSzhwYoF6TvPtO6GccjsYQhTw==",
+  "dgSpecHash": "QqROP4T00LKAQI9SG079ATAAEBhRQJpmjw8XB8JRtWHx4PiiERkqRZxErup3BrLY0l8gO+T3YFWVEIwh6f2agA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\roeim\\OneDrive\\שולחן העבודה\\הנדסת תוכנה\\WebServer\\WebServer.csproj",
+  "projectFilePath": "C:\\Users\\roeim\\OneDrive\\שולחן העבודה\\הנדסת תוכנה\\FinalProject10\\WebServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\roeim\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.4\\microsoft.data.sqlite.core.8.0.4.nupkg.sha512",
     "C:\\Users\\roeim\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.4\\microsoft.entityframeworkcore.8.0.4.nupkg.sha512",
